@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Import Materialize google fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+    <!-- Import Fonte Externa -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <!-- Import CSS Pessoal -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Import Materialize CSS -->
+    <link type="text/css" rel="stylesheet" href="includes/materialize/css/materialize.css" media="screen,
+    projection" />
+    <!-- Import IZI Toast -->
+    <link rel="stylesheet" href="includes/izitoast/css/iziToast.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="300">
+
+
+
+    <title>Sismat</title>
+</head>
+
+<body>
+    <!-- ################################################################################# -->
+    <!-- ######## Cabeçalho ############################################################## -->
+    <!-- ################################################################################# -->
+    <header>
+        <!-- Classe menu fixo -->
+        <div class="navbar-fixed">
+            <nav>
+                <!-- Inicio da área de menu principal -->
+                <div class="nav-wrapper teal darken-4">
+                    <!-- Botão do side-menu -->
+                    <span data-target="slide-out" class="sidenav-trigger">
+                        <a href="">
+                            <i id="sidenav-icon" class="fas fa-bars fa-2x"></i>
+                        </a>
+                    </span>
+                    <!-- Logo -->
+                    <a id="logo" href="#" class="brand-logo">Biolimp</a>
+                    <!-- Menu Desktop -->
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="#modal-sobre" class="modal-trigger">SOBRE</a>
+                        </li>
+                        <li>
+                            <a href="#modal-ajuda" class="modal-trigger">AJUDA</a>
+                        </li>
+                        <li>
+                            <a id="menu-desktop-config" class="">CONFIGURAÇÕES</a>
+                        </li>
+                        <li>
+                            <a id="menu-desktop-login" href="#modal-login" class="modal-trigger">LOGIN
+                                <i id="menu-desktop-login-icon" class="fas fa-sign-in-alt fa-3x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Menu Mobile -->
+                    <ul class="right hide-on-large-only">
+                        <a class="dropdown-trigger" data-target="dropdown-config" href="#">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- Dropdown Menu Mobile Itens -->
+        <ul id="dropdown-config" class="dropdown-content">
+            <li>
+                <a href="#modal-sobre" class="modal-trigger">SOBRE</a>
+            </li>
+            <li>
+                <a href="#modal-ajuda" class="modal-trigger">AJUDA</a>
+            </li>
+            <li>
+                <a id="menu-mobile-config" class="">CONFIGURAÇÕES</a>
+            </li>
+            <li class="divider" tabindex="-1"></li>
+            <li>
+                <a id="menu-mobile-login" href="#modal-login" class="modal-trigger">LOGIN
+                    <i id="menu-mobile-login-icon" class="fas fa-sign-in-alt fa-3x"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- Side Menu -->
+        <ul id="slide-out" class="sidenav cyan darken-4">
+            <!-- Quadro Usuario -->
+            <li>
+                <div class="user-view teal darken-4">
+                    <div class="center">
+                        <a id="sidenav-avatar" class="pointer">
+                            <i class="material-icons large white-text">person_pin</i>
+                        </a>
+                    </div>
+                    <div class="center">
+                        <a id="sidenav-user" class="pointer">
+                            <span class="white-text">USUARIO</span>
+                        </a>
+                    </div>
+                    <div class="center">
+                        <a id="sidenav-email" class="pointer">
+                            <span class="white-text">EMAIL</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <div>
+                <li>
+                    <a id="sidenav-inicio" class="white-text waves-effect pointer">
+                        <i class="material-icons">home</i> INICIO</a>
+                </li>
+                <li>
+                    <a id="sidenav-chamados" class="white-text waves-effect pointer">
+                        <i class="material-icons">assignment_late</i>CHAMADOS</a>
+                </li>
+                <li>
+                    <a id="sidenav-requisicoes" class="white-text waves-effect pointer">
+                        <i class="material-icons">business_center</i>REQUISIÇÕES</a>
+                </li>
+                <li>
+                    <a id="sidenav-ocorrencias" class="white-text waves-effect pointer">
+                        <i class="material-icons">assignment</i>OCORRÊNCIAS</a>
+                </li>
+                <li>
+                    <a id="sidenav-equipamentos" class="white-text waves-effect pointer">
+                        <i class="material-icons">toys</i> EQUIPAMENTOS</a>
+                </li>
+                <li>
+                    <a id="sidenav-ordens" class="white-text waves-effect pointer">
+                        <i class="material-icons">library_books</i>ORDENS DE SERVIÇO</a>
+                </li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li>
+                    <a id="sidenav-planos" class="white-text waves-effect pointer">
+                        <i class="material-icons">assessment</i>PLANOS MANUTENÇÃO</a>
+                </li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li id="sidenav-administrador-item">
+                    <a id="sidenav-administrador" class="white-text waves-effect pointer">
+                        <i class="material-icons">priority_high</i>ADMINISTRADOR</a>
+                </li>
+            </div>
+        </ul>
+    </header>
+    <!-- ################################################################################# -->
+    <!-- ######## Fim do Cabeçalho ####################################################### -->
+    <!-- ################################################################################# -->
+
+    <!-- ################################################################################# -->
+    <!-- ######## Conteúdo Principal ##################################################### -->
+    <!-- ################################################################################# -->
+    <main>
+
+        <div id="content-config">
+            <div class="row">
+                <div class="col s12">
+                    <ul id="tabs-config" class="tabs">
+                        <li class="tab col s3">
+                            <a href="#usuario-config">USUÁRIO</a>
+                        </li>
+                        <li class="tab col s3">
+                            <a href="#senha-config">SENHA</a>
+                        </li>
+                        <li class="tab col s3">
+                            <a href="#conta-config">CONTA</a>
+                        </li>
+                        <li class="tab col s3">
+                            <a href="#customiza-config">CUSTOMIZAÇÃO</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="usuario-config" class="col s12">
+                    <h6 class="left">Configurações de Usuário</h6>
+                    <h6 class="right">Voltar</h6>
+                    <br>
+                    <br>
+                    <div class="row center">
+                        <div class="divider"></div>
+                        <h5 id="nomeUsuario-config">USUARIO</h5>
+                        <!-- Formulário -->
+                        <form id="form-config-user" class="col s12 m6 push-m3 l6 push-l3">
+                            <!-- Usuario -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="user-config" type="text" class="validate" required pattern="[A-z]+$">
+                                    <label for="user-config">Informe o novo nome de usuário</label>
+                                    <span class="helper-text" data-error="Informe outro nome de usuário"></span>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <!-- Botão submissão salva novo usuário -->
+                            <div class="row center section">
+                                <button id="btn-user-config" class="btn waves-effect waves-light" type="submit">Salvar
+                                    <i class="material-icons right">save</i>
+                                </button>
+                                <!-- Preloader -->
+                                <div class="row center">
+                                    <div id="progress-user-config" class="progress" style="display: none;">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="senha-config" class="col s12">
+                    <h6 class="left">Configurações de Senha</h6>
+                    <h6 class="right">Voltar</h6>
+                    <br>
+                    <br>
+                    <div class="row center">
+                        <div class="divider"></div>
+                        <!-- Formulário -->
+                        <form id="form-config-senha" class="col s12 m6 push-m3 l6 push-l3">
+                            <!-- Senha antiga -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="passOld-config" type="password" required>
+                                    <label for="passOld-config">Informe sua senha atual</label>
+                                </div>
+                            </div>
+                            <!-- Senha nova -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="passNew1-config" type="password" required class="validate">
+                                    <label for="passNew1-config">Informe a novasenha</label>
+                                    <span class="helper-text" data-error="As senhas devem ser iguais" data-success="Correto!"></span>
+                                </div>
+                            </div>
+                            <!-- Senha nova 2 -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="passNew2-config" type="password" required class="validate">
+                                    <label for="passNew2-config">Repita a novasenha</label>
+                                    <span class="helper-text" data-error="As senhas devem ser iguais" data-success="Correto!"></span>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <!-- Botão submissão salva nova senha -->
+                            <div class="row center section">
+                                <button id="btn-user-password" class="btn waves-effect waves-light" type="submit">Salvar
+                                    <i class="material-icons right">save</i>
+                                </button>
+                                <!-- Preloader -->
+                                <div class="row center">
+                                    <div id="progress-user-password" class="progress" style="display: none;">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="conta-config" class="col s12">
+                    <h1 class="center">EM DESENVOLVIMENTO</h1>
+                </div>
+                <div id="customiza-config" class="col s12">
+                    <h1 class="center">EM DESENVOLVIMENTO</h1>
+                </div>
+            </div>
+        </div>
+
+        <div id="presentation-content" class="valign-wrapper">
+            <div id="inner-content" class="valign-wrapper">
+                <span id="text-content">SISMAT</span>
+            </div>
+        </div>
+
+    </main>
+    <!-- ################################################################################# -->
+    <!-- ######## Fim do Conteúdo Principal ############################################## -->
+    <!-- ################################################################################# -->
+
+    <!-- ############################################################################# -->
+    <!-- ######## Rodapé ############################################################# -->
+    <!-- ############################################################################# -->
+    <footer class="page-footer teal darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l12 m12 s12 center">
+                    <h6 class="">SISMAT - Sistema de Manutenção</h6>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright teal darken-4">
+            <div class="container center">
+                <h6>© 2018 TODOS OS DIREITOS RESERVADOS</h6>
+                <span class="center">Desenvolvido por
+                    <a href="#modal-pessoal" class="modal-trigger">
+                        <strong>Alexandre Rodrigues</strong>
+                    </a>
+                </span>
+                <br>
+                <span>
+                    <a href="#modal-termo" class="modal-trigger">Nossos termos de privacidade.</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!-- ############################################################################ -->
+    <!-- ######## Fim do Rodapé ##################################################### -->
+    <!-- ############################################################################ -->
+
+
+    <!-- Import JavaScript materialize -->
+    <script type="text/javascript" src="includes/materialize/js/materialize.js"></script>
+    <!-- Import IZI Toast -->
+    <script src="includes/izitoast/js/iziToast.min.js"></script>
+    <!-- Import JavaScript Pessoal -->
+    <!-- Deixar em primeiro -->
+    <script type="text/javascript" src="js/autoload.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+
+
+
+
+
+    <!-- ############################################################################# -->
+    <!-- ######## MODAIS ############################################################# -->
+    <!-- ############################################################################# -->
+
+    <!-- ############################################################################# -->
+    <!-- ######## MODAL AJUDA ######################################################## -->
+    <!-- ############################################################################# -->
+    <!-- Modal Structure -->
+    <div id="modal-ajuda" class="modal">
+        <div class="modal-content">
+
+            <h4 class="modal-titulo">AJUDA</h4>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">home</i>INÍCIO</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks
+                            terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus.
+                            Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
+                            Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead. Cum horribilem walking dead resurgere
+                            de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun
+                            ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat
+                            mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum
+                            contagium accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna
+                            copia sint terribiles undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram.
+                            Putridi braindead odores kill and.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">assignment_late</i>CHAMADOS</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks
+                            terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus.
+                            Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
+                            Sicut malus putrid voodoo horror. Nigh tofth eliv.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">business_center</i>REQUISIÇÕES</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks
+                            terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus.
+                            Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
+                            Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead. Cum horribilem walking dead resurgere
+                            de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun
+                            ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">assignment</i>OCORRÊNCIAS</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">toys</i>EQUIPAMENTOS</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks
+                            terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus.
+                            Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
+                            Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead. Cum horribilem walking dead resurgere
+                            de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun
+                            ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat
+                            mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum
+                            contagium accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna
+                            copia sint terribiles undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram.
+                            Putridi braindead odores kill and.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">library_books</i>ORDENS DE SERVIÇO</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons center">assessment</i>PLANOS DE MANUTENÇÃO</div>
+                    <div class="collapsible-body">
+                        <span>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
+                            corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
+                            survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus
+                            resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks
+                            terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus.
+                            Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
+                            Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead. Cum horribilem walking dead resurgere
+                            de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun
+                            ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague.</span>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="direitos">
+            © 2018 TODOS OS DIREITOS RESERVADOS
+        </div>
+    </div>
+    <!-- Script modal -->
+    <script>
+        var elem = document.querySelector('#modal-ajuda');
+        var instance = new M.Modal(elem);
+        var elem = document.querySelector('.collapsible');
+        var instance = new M.Collapsible(elem);
+    </script>
+
+    <!-- #################################################################################### -->
+    <!-- ######## MODAL SOBRE ############################################################### -->
+    <!-- #################################################################################### -->
+    <!-- Modal Structure -->
+    <div id="modal-sobre" class="modal">
+        <div class="modal-content">
+
+            <h4 class="modal-titulo">SOBRE ESTA APLICAÇÃO</h4>
+
+            <p class="modal-sobre-texto">
+
+                Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus
+                brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless
+                mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.
+                Qui animated corpse.
+
+            </p>
+            <p class="modal-sobre-texto">
+
+                Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus
+                brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless
+                mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.
+                Qui animated corpse.
+
+            </p>
+            <p class="modal-sobre-texto">
+
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quaerat nihil non eum corporis maxime consequuntur,
+                maiores illum explicabo eveniet quidem odit quibusdam velit magni repellat enim impedit, suscipit delectus.
+
+            </p>
+            <p class="modal-sobre-texto">
+
+                Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus
+                brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless
+                mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.
+                Qui animated corpse.
+
+            </p>
+            <p class="modal-sobre-texto">
+
+                Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus
+                brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless
+                mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.
+                Qui animated corpse.
+
+            </p>
+            <p class="modal-sobre-texto">
+
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quaerat nihil non eum corporis maxime consequuntur,
+                maiores illum explicabo eveniet quidem odit quibusdam velit magni repellat enim impedit, suscipit delectus.
+
+            </p>
+        </div>
+        <div class="direitos">
+            © 2018 TODOS OS DIREITOS RESERVADOS
+        </div>
+    </div>
+    <!-- Modal Script -->
+    <script>
+        var elem = document.querySelector('#modal-sobre');
+        var instance = new M.Modal(elem);
+    </script>
+
+    <!-- #################################################################################### -->
+    <!-- ######## MODAL PESSOAL ############################################################### -->
+    <!-- #################################################################################### -->
+    <!-- Modal Structure -->
+    <div id="modal-pessoal" class="modal">
+        <div class="modal-content">
+            <h4 class="modal-titulo">ENTRE EM CONTATO</h4>
+            <div class="center">
+                <br>
+                <h5>
+                    <a href="mailto:btt.ale@gmail.com">btt.ale@gmail.com</a>
+                </h5>
+                <br>
+                <h5>
+                    <a href="tel:0414198416-7733">(41) 98416-7733</a>
+                </h5>
+            </div>
+        </div>
+        <div class="direitos">
+            © 2018 TODOS OS DIREITOS RESERVADOS
+        </div>
+    </div>
+    <!-- Script Modal -->
+    <script>
+        var elem = document.querySelector('#modal-pessoal');
+        var instance = new M.Modal(elem);
+    </script>
+
+    <!-- #################################################################################### -->
+    <!-- ######## MODAL LOGIN ############################################################### -->
+    <!-- #################################################################################### -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s12">
+                    <ul id="tabs-login" class="tabs">
+                        <li class="tab col s6">
+                            <a href="#primeiro-acesso">NOVO ACESSO</a>
+                        </li>
+                        <li class="tab col s6">
+                            <a href="#login">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="primeiro-acesso" class="col s12">
+                    <h6 class="teal-text text-darken-4 center section">SEU PRIMEIRO ACESSO</h6>
+                    <div class="row">
+                        <!-- Formulário -->
+                        <form class="col s12" id="novoAcesso">
+                            <!-- Usuário -->
+                            <div class="row">
+                                <div class="input-field col s12 ">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input type="text" id="primeiro-acesso-user" class="validate" required pattern="[A-z]+$">
+                                    <label for="primeiro-acesso-user">Usuário*</label>
+                                    <span class="helper-text" data-error="Informe outro nome de usuário sem espaço, algarismos ou caracteres especiais."></span>
+                                </div>
+                            </div>
+                            <!-- Email -->
+                            <div class="row">
+                                <div class="input-field col s12 ">
+                                    <i class="material-icons prefix">email</i>
+                                    <input type="email" id="primeiro-acesso-email" class="validate" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                    <label for="primeiro-acesso-pass">Email principal*</label>
+                                    <span class="helper-text" data-error="Informe o e-mail corretamente" data-success="e-mail correto"></span>
+                                </div>
+                            </div>
+                            <!-- Check box termos -->
+                            <div class="row center">
+                                <label>
+                                    <input type="checkbox" required class="filled-in section" />
+                                    <span>Aceito os
+                                        <strong>termos</strong> de privacidade.</span>
+                                </label>
+                            </div>
+                            <div class="divider"></div>
+                            <!-- Botão submissão Primeiro Acesso -->
+                            <div class="row center section">
+                                <button id="btn-primeiro_acesso" class="btn waves-effect waves-light" type="submit">Enviar solicitação
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <!-- Preloader -->
+                                <div class="row center">
+                                    <div id="progress-primeiro_acesso" class="progress" style="display: none;">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="login" class="col s12">
+                    <h6 class="teal-text text-darken-4 center section">LOGIN</h6>
+                    <div class="row">
+                        <!-- Form Login -->
+                        <form id="loginAcesso" class="col s12">
+                            <!-- Email Login -->
+                            <div class="row">
+                                <div class="input-field col s12 section">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="login-email" type="email" required class="validate">
+                                    <label for="login-email">Email principal*</label>
+                                    <span class="helper-text" data-error="Informe o e-mail corretamente" data-success="e-mail correto">Informe o email corretamente.</span>
+                                </div>
+                            </div>
+                            <!-- Senha Login -->
+                            <div class="row">
+                                <div class="input-field col s12 section">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="login-pass" type="password" required>
+                                    <label id="label-login-pass" for="login-pass">Informe sua senha*</label>
+                                </div>
+                            </div>
+                            <!-- Check box recuperação de senha -->
+                            <div class="row center">
+                                <label>
+                                    <input id="esqueci-senha" type="checkbox" class="filled-in section" />
+                                    <span>Esqueci minha senha.</span>
+                                </label>
+                            </div>
+                            <div class="divider"></div>
+                            <!-- Botão enviar -->
+                            <div class="row center section">
+                                <button id="btn-login" class="btn waves-effect waves-light" type="submit">Entrar
+                                    <i id="icon-btn-login" class="material-icons right">send</i>
+                                </button>
+                                <!-- Preloader -->
+                                <div class="row center">
+                                    <div id="progress-login" class="progress" style="display: none;">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script Modal -->
+    <script>
+        var modal_login = new M.Modal(document.querySelector('#modal-login'));
+
+        var tab_login = new M.Tabs(document.querySelector('#tabs-login'));
+
+        document.getElementById("esqueci-senha").onchange = function () {
+
+            if (document.getElementById("esqueci-senha").checked) {
+                document.getElementById("login-pass").setAttribute("disabled", "true");
+                document.getElementById("label-login-pass").innerHTML = "Clique em recuperar senha!";
+                document.getElementById("btn-login").innerHTML = 'Recuperar Senha<i id="icon-btn-login" class="material-icons right">refresh</i>';
+            } else {
+                document.getElementById("login-pass").removeAttribute("disabled", "false");
+                document.getElementById("label-login-pass").innerHTML = "Informe sua senha";
+                document.getElementById("btn-login").innerHTML = 'Entrar<i id="icon-btn-login" class="material-icons right">send</i>';
+
+            }
+        }
+
+    </script>
+
+
+    <!-- #################################################################################### -->
+    <!-- ######## MODAL TERMO ############################################################### -->
+    <!-- #################################################################################### -->
+    <div id="modal-termo" class="modal">
+        <div class="modal-content">
+            <a onclick="modal_termo.close();">
+                <i class="material-icons right teal-text text-darken-4 pointer">close</i>
+            </a>
+            <div>
+                <h5>Política de privacidade para
+                    <a href="http://sismat.tk">Sismat</a>
+                </h5>
+                <p>Todas as suas informações pessoais recolhidas, serão usadas para o ajudar a tornar a sua visita no nosso
+                    site o mais produtiva e agradável possível.</p>
+                <p>A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para o Sismat.</p>
+                <p>Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem o Sismat serão
+                    tratadas em concordância com a Lei da Proteção de Dados Pessoais de 26 de outubro de 1998 (Lei n.º 67/98).</p>
+                <p>A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada,
+                    data de nascimento e/ou outros.</p>
+                <p>O uso do Sismat pressupõe a aceitação deste Acordo de privacidade. A equipa do Sismat reserva-se ao direito
+                    de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade
+                    com regularidade de forma a estar sempre atualizado.</p>
+                <h6>Os anúncios</h6>
+                <p>Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos
+                    anúncios, inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o
+                    Sapo, Clix, ou outro), o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou
+                    o Firefox), o tempo da sua visita e que páginas visitou dentro do nosso website.</p>
+                <h6>Cookie DoubleClick Dart</h6>
+                <p>O Google, como fornecedor de terceiros, utiliza cookies para exibir anúncios no nosso website;</p>
+                <p>Com o cookie DART, o Google pode exibir anúncios com base nas visitas que o leitor fez a outros websites
+                    na Internet;</p>
+                <p>Os utilizadores podem desativar o cookie DART visitando a Política de
+                    <a href="http://politicaprivacidade.com"
+                        title="privacidade da rede de conteúdo">privacidade da rede de conteúdo</a> e dos anúncios do Google.</p>
+                <h6>Os Cookies e Web Beacons</h6>
+                <p>Utilizamos cookies para armazenar informação, tais como as suas preferências pessoas quando visita o nosso
+                    website. Isto poderá incluir um simples popup, ou uma ligação em vários serviços que providenciamos,
+                    tais como fóruns.</p>
+                <p>Em adição também utilizamos publicidade de terceiros no nosso website para suportar os custos de manutenção.
+                    Alguns destes publicitários, poderão utilizar tecnologias como os cookies e/ou web beacons quando publicitam
+                    no nosso website, o que fará com que esses publicitários (como o Google através do Google AdSense) também
+                    recebam a sua informação pessoal, como o endereço IP, o seu ISP, o seu browser, etc. Esta função é geralmente
+                    utilizada para geotargeting (mostrar publicidade de Lisboa apenas aos leitores oriundos de Lisboa por
+                    ex.) ou apresentar publicidade direcionada a um tipo de utilizador (como mostrar publicidade de restaurante
+                    a um utilizador que visita sites de culinária regularmente, por ex.).</p>
+                <p>Você detém o poder de desligar os seus cookies, nas opções do seu browser, ou efetuando alterações nas ferramentas
+                    de programas Anti-Virus, como o Norton Internet Security. No entanto, isso poderá alterar a forma como
+                    interage com o nosso website, ou outros websites. Isso poderá afetar ou não permitir que faça logins
+                    em programas, sites ou fóruns da nossa e de outras redes.</p>
+                <h6>Ligações a Sites de terceiros</h6>
+                <p>O Sismat possui ligações para outros sites, os quais, a nosso ver, podem conter informações / ferramentas
+                    úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros,
+                    pelo que, caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.</p>
+                <p>Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.</p>
+            </div>
+        </div>
+        <div class="direitos">
+            © 2018 TODOS OS DIREITOS RESERVADOS
+        </div>
+    </div>
+    <!-- Script Modal -->
+    <script>
+        var modal_termo = new M.Modal(document.querySelector('#modal-termo'));
+
+    </script>
+
+
+
+</body>
+
+</html>
